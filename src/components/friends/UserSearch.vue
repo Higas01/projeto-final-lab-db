@@ -7,18 +7,20 @@
     </h2>
 
     <div class="mb-6">
-      <div class="flex gap-4">
+      <div
+        class="flex flex-col sm:flex-row gap-3 sm:gap-4"
+      >
         <input
           v-model="searchEmail"
           type="email"
           placeholder="Digite o email do usuário para buscar..."
-          class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
           @keyup.enter="searchUser"
         />
         <button
           @click="searchUser"
           :disabled="!searchEmail || searching"
-          class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300 text-sm sm:text-base font-medium whitespace-nowrap"
         >
           {{
             searching ? 'Buscando...' : 'Buscar'
@@ -47,14 +49,16 @@
       <div
         v-for="user in searchResults"
         :key="user.uid"
-        class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50"
+        class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
       >
-        <div class="flex items-center space-x-4">
+        <div
+          class="flex items-center space-x-3 sm:space-x-4 flex-1 min-w-0"
+        >
           <div
-            class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0"
           >
             <span
-              class="text-gray-600 font-semibold"
+              class="text-gray-600 font-semibold text-sm sm:text-base"
             >
               {{
                 user.displayName
@@ -63,13 +67,15 @@
               }}
             </span>
           </div>
-          <div>
+          <div class="flex-1 min-w-0">
             <h4
-              class="font-semibold text-gray-800"
+              class="font-semibold text-gray-800 truncate text-sm sm:text-base"
             >
               {{ user.displayName }}
             </h4>
-            <p class="text-gray-600 text-sm">
+            <p
+              class="text-gray-600 text-xs sm:text-sm truncate"
+            >
               {{ user.email }}
             </p>
             <p class="text-gray-500 text-xs">
@@ -79,10 +85,12 @@
           </div>
         </div>
 
-        <div class="flex space-x-2">
+        <div
+          class="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2 w-full sm:w-auto"
+        >
           <router-link
             :to="`/profile/${user.uid}`"
-            class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 text-sm"
+            class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 text-sm text-center transition-colors"
           >
             Ver Perfil
           </router-link>
@@ -92,6 +100,7 @@
             v-if="
               user.uid !== authStore.user?.uid
             "
+            class="w-full sm:w-auto"
           >
             <!-- Already friends -->
             <router-link
@@ -99,7 +108,7 @@
                 friendsStore.isFriend(user.uid)
               "
               :to="`/chat?user=${user.uid}`"
-              class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
+              class="block px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm text-center transition-colors"
             >
               Conversar
             </router-link>
@@ -107,7 +116,7 @@
             <!-- Request already sent -->
             <span
               v-else-if="hasSentRequest(user.uid)"
-              class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-lg text-sm"
+              class="block px-4 py-2 bg-yellow-100 text-yellow-800 rounded-lg text-sm text-center"
             >
               Convite Enviado
             </span>
@@ -119,7 +128,7 @@
                 sendFriendRequest(user.email)
               "
               :disabled="loading"
-              class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 text-sm"
+              class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 text-sm transition-colors"
             >
               Adicionar Amigo
             </button>

@@ -4,9 +4,7 @@
 
     <div v-else-if="post" class="space-y-6">
       <!-- Post Card -->
-      <div
-        class="bg-white dark:bg-gray-800 shadow rounded-lg p-6"
-      >
+      <div class="bg-white shadow rounded-lg p-6">
         <!-- Post header -->
         <div
           class="flex items-center justify-between mb-4"
@@ -28,13 +26,11 @@
             <div>
               <router-link
                 :to="`/profile/${post.authorId}`"
-                class="font-semibold text-lg text-gray-900 dark:text-white hover:text-blue-600"
+                class="font-semibold text-lg text-gray-900 hover:text-blue-600"
               >
                 {{ post.authorName }}
               </router-link>
-              <p
-                class="text-sm text-gray-500 dark:text-gray-400"
-              >
+              <p class="text-sm text-gray-500">
                 {{ formatDate(post.createdAt) }}
               </p>
             </div>
@@ -44,12 +40,12 @@
         <!-- Post title and content -->
         <div class="mb-6">
           <h1
-            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+            class="text-2xl font-bold text-gray-900 mb-4"
           >
             {{ post.title }}
           </h1>
           <p
-            class="text-gray-800 dark:text-gray-200 leading-relaxed text-lg"
+            class="text-gray-800 leading-relaxed text-lg"
           >
             {{ post.content }}
           </p>
@@ -57,7 +53,7 @@
 
         <!-- Post actions -->
         <div
-          class="flex items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700"
+          class="flex items-center space-x-4 pt-4 border-t border-gray-200"
         >
           <button
             @click="toggleLike"
@@ -114,11 +110,9 @@
       </div>
 
       <!-- Comments Section -->
-      <div
-        class="bg-white dark:bg-gray-800 shadow rounded-lg p-6"
-      >
+      <div class="bg-white shadow rounded-lg p-6">
         <h2
-          class="text-xl font-semibold text-gray-900 dark:text-white mb-4"
+          class="text-xl font-semibold text-gray-900 mb-4"
         >
           Comentários
         </h2>

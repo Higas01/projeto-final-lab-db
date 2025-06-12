@@ -56,7 +56,6 @@ Uma plataforma de rede social moderna construída com Vue.js 3, Firebase e TypeS
 - **Firebase Authentication** - Autenticação e gerenciamento de usuários
 - **Cloud Firestore** - Banco de dados NoSQL para dados estruturados
 - **Firebase Realtime Database** - Banco de dados em tempo real para chat
-- **Firebase Storage** - Armazenamento de arquivos (configurado)
 
 ### **Bibliotecas e Utilitários**
 

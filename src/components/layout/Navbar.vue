@@ -32,7 +32,7 @@ function toggleUserMenu() {
 </script>
 
 <template>
-  <nav class="bg-white dark:bg-gray-800 shadow">
+  <nav class="bg-white shadow">
     <div
       class="container mx-auto px-4 sm:px-6 lg:px-8"
     >
@@ -55,12 +55,12 @@ function toggleUserMenu() {
           >
             <router-link
               to="/"
-              class="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+              class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-600"
               >Início</router-link
             >
             <router-link
               :to="`/profile/${user?.uid}`"
-              class="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+              class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-600"
               >Perfil</router-link
             >
           </div>
@@ -75,7 +75,7 @@ function toggleUserMenu() {
           <!-- Chat button with notification badge -->
           <router-link
             to="/chat"
-            class="mr-4 relative p-1 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+            class="mr-4 relative p-1 rounded-full text-gray-700 hover:text-primary-600"
           >
             <span class="sr-only"
               >Ver mensagens</span
@@ -134,21 +134,21 @@ function toggleUserMenu() {
             <!-- User dropdown menu -->
             <div
               v-show="showUserMenu"
-              class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50"
+              class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 z-50"
             >
               <router-link
                 :to="`/profile/${user?.uid}`"
-                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >Seu Perfil</router-link
               >
               <router-link
                 to="/friends"
-                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >Amigos</router-link
               >
               <button
                 @click="logout"
-                class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 Sair
               </button>
@@ -161,7 +161,7 @@ function toggleUserMenu() {
           <button
             @click="toggleMobileMenu"
             type="button"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
           >
             <span class="sr-only"
               >Abrir menu principal</span
@@ -209,22 +209,22 @@ function toggleUserMenu() {
       <div class="pt-2 pb-3 space-y-1">
         <router-link
           to="/"
-          class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600"
           >Início</router-link
         >
         <router-link
           :to="`/profile/${user?.uid}`"
-          class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600"
           >Perfil</router-link
         >
         <router-link
           to="/friends"
-          class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600"
           >Amigos</router-link
         >
         <router-link
           to="/chat"
-          class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600"
         >
           Chat
           <span
@@ -236,7 +236,7 @@ function toggleUserMenu() {
         </router-link>
         <button
           @click="logout"
-          class="w-full text-left block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500"
+          class="w-full text-left block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600"
         >
           Sair
         </button>

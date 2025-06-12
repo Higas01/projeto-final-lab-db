@@ -69,12 +69,12 @@ function formatDate(date: Date) {
   if (
     date.toDateString() === today.toDateString()
   ) {
-    return 'Today';
+    return 'Hoje';
   } else if (
     date.toDateString() ===
     yesterday.toDateString()
   ) {
-    return 'Yesterday';
+    return 'Ontem';
   } else {
     return date.toLocaleDateString();
   }
@@ -114,14 +114,15 @@ onMounted(() => {
 <template>
   <div
     ref="messagesContainer"
-    class="h-full overflow-y-auto p-4 bg-gray-50 dark:bg-gray-900"
+    class="h-full overflow-y-auto p-4 bg-gray-50"
   >
     <div
       v-if="!messages || messages.length === 0"
       class="h-full flex items-center justify-center text-gray-500"
     >
       <p>
-        No messages yet. Start a conversation!
+        Nenhuma mensagem ainda. Inicie uma
+        conversa!
       </p>
     </div>
 
@@ -135,7 +136,7 @@ onMounted(() => {
       >
         <div class="text-center mb-4">
           <span
-            class="inline-block px-3 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full"
+            class="inline-block px-3 py-1 text-xs font-medium bg-gray-200 text-gray-800 rounded-full"
           >
             {{ formatDate(new Date(group.date)) }}
           </span>
@@ -160,7 +161,7 @@ onMounted(() => {
                 'bg-primary-500 text-white rounded-tr-none':
                   message.senderId ===
                   currentUserId,
-                'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-tl-none':
+                'bg-gray-200 text-gray-900 rounded-tl-none':
                   message.senderId !==
                   currentUserId,
               }"
@@ -172,7 +173,7 @@ onMounted(() => {
                   'text-primary-100 justify-end':
                     message.senderId ===
                     currentUserId,
-                  'text-gray-500 dark:text-gray-400':
+                  'text-gray-500':
                     message.senderId !==
                     currentUserId,
                 }"

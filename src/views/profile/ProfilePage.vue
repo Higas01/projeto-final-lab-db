@@ -83,7 +83,7 @@ async function handleProfileUpdated() {
 
     <div v-else>
       <div
-        class="bg-white dark:bg-gray-800 shadow rounded-lg mb-8"
+        class="bg-white shadow rounded-lg mb-8"
       >
         <div class="px-4 py-5 sm:px-6">
           <div
@@ -110,21 +110,17 @@ async function handleProfileUpdated() {
               </div>
               <div>
                 <h1
-                  class="text-2xl font-bold text-gray-900 dark:text-white"
+                  class="text-2xl font-bold text-gray-900"
                 >
                   {{
                     profileUser?.displayName ||
                     'Usuário'
                   }}
                 </h1>
-                <p
-                  class="text-gray-500 dark:text-gray-400"
-                >
+                <p class="text-gray-500">
                   {{ profileUser?.email }}
                 </p>
-                <p
-                  class="text-sm text-gray-400 dark:text-gray-500"
-                >
+                <p class="text-sm text-gray-400">
                   Membro desde
                   {{
                     new Date(
@@ -187,7 +183,7 @@ async function handleProfileUpdated() {
 
       <div class="mb-6">
         <h2
-          class="text-xl font-semibold mb-4 text-gray-900 dark:text-white"
+          class="text-xl font-semibold mb-4 text-gray-900"
         >
           Posts
         </h2>
@@ -200,11 +196,9 @@ async function handleProfileUpdated() {
           v-else-if="
             postsStore.posts.length === 0
           "
-          class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 text-center"
+          class="bg-white shadow rounded-lg p-6 text-center"
         >
-          <p
-            class="text-gray-500 dark:text-gray-400"
-          >
+          <p class="text-gray-500">
             Nenhum post ainda
           </p>
           <router-link

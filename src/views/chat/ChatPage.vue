@@ -88,7 +88,7 @@ function toggleUserList() {
       class="flex justify-between items-center mb-4"
     >
       <h1
-        class="text-3xl font-bold text-gray-900 dark:text-white"
+        class="text-3xl font-bold text-gray-900"
       >
         Chat
       </h1>
@@ -105,7 +105,7 @@ function toggleUserList() {
     </div>
 
     <div
-      class="flex flex-1 gap-4 h-full overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700"
+      class="flex flex-1 gap-4 h-full overflow-hidden rounded-lg border border-gray-200"
     >
       <!-- User list (sidebar) -->
       <div
@@ -115,19 +115,13 @@ function toggleUserList() {
           'hidden md:block':
             !showUserList && windowWidth > 768,
         }"
-        class="bg-white dark:bg-gray-800 overflow-hidden flex flex-col"
+        class="bg-white overflow-hidden flex flex-col"
       >
-        <div
-          class="p-4 border-b border-gray-200 dark:border-gray-700"
-        >
-          <h2
-            class="font-semibold text-gray-900 dark:text-white"
-          >
+        <div class="p-4 border-b border-gray-200">
+          <h2 class="font-semibold text-gray-900">
             Amigos Online
           </h2>
-          <p
-            class="text-sm text-gray-500 dark:text-gray-400"
-          >
+          <p class="text-sm text-gray-500">
             Você só pode conversar com amigos
           </p>
         </div>
@@ -154,7 +148,7 @@ function toggleUserList() {
         v-show="
           !showUserList || windowWidth > 768
         "
-        class="flex-1 flex flex-col bg-white dark:bg-gray-800 overflow-hidden"
+        class="flex-1 flex flex-col bg-white overflow-hidden"
       >
         <div
           v-if="!chatStore.selectedUser"
@@ -174,15 +168,11 @@ function toggleUserList() {
               d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
             />
           </svg>
-          <p
-            class="text-gray-600 dark:text-gray-300 mb-2"
-          >
+          <p class="text-gray-600 mb-2">
             Selecione um amigo para começar a
             conversar
           </p>
-          <p
-            class="text-sm text-gray-500 dark:text-gray-400 mb-4"
-          >
+          <p class="text-sm text-gray-500 mb-4">
             Você só pode conversar com pessoas que
             são seus amigos
           </p>
@@ -204,12 +194,12 @@ function toggleUserList() {
         <template v-else>
           <!-- Chat header -->
           <div
-            class="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center"
+            class="p-4 border-b border-gray-200 flex items-center"
           >
             <button
               v-if="windowWidth <= 768"
               @click="toggleUserList"
-              class="mr-2 text-gray-600 dark:text-gray-300"
+              class="mr-2 text-gray-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -248,7 +238,7 @@ function toggleUserList() {
 
               <div>
                 <h3
-                  class="font-medium text-gray-900 dark:text-white"
+                  class="font-medium text-gray-900"
                 >
                   {{
                     chatStore.selectedUser
@@ -269,15 +259,12 @@ function toggleUserList() {
                           .isOnline,
                     }"
                   ></span>
-                  <span
-                    class="text-gray-500 dark:text-gray-400"
-                    >{{
-                      chatStore.selectedUser
-                        .isOnline
-                        ? 'Online'
-                        : 'Offline'
-                    }}</span
-                  >
+                  <span class="text-gray-500">{{
+                    chatStore.selectedUser
+                      .isOnline
+                      ? 'Online'
+                      : 'Offline'
+                  }}</span>
                 </div>
               </div>
             </div>

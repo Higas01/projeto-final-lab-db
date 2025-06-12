@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white dark:bg-gray-800 shadow rounded-lg p-6 mb-4"
+    class="bg-white shadow rounded-lg p-6 mb-4"
   >
     <!-- Post header -->
     <div
@@ -23,13 +23,11 @@
         <div>
           <router-link
             :to="`/profile/${post.authorId}`"
-            class="font-semibold text-gray-900 dark:text-white hover:text-blue-600"
+            class="font-semibold text-gray-900 hover:text-blue-600"
           >
             {{ post.authorName }}
           </router-link>
-          <p
-            class="text-sm text-gray-500 dark:text-gray-400"
-          >
+          <p class="text-sm text-gray-500">
             {{ formatDate(post.createdAt) }}
           </p>
         </div>
@@ -75,20 +73,18 @@
     <!-- Post title and content -->
     <div class="mb-4">
       <h2
-        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
+        class="text-xl font-bold text-gray-900 mb-3"
       >
         {{ post.title }}
       </h2>
-      <p
-        class="text-gray-800 dark:text-gray-200 leading-relaxed"
-      >
+      <p class="text-gray-800 leading-relaxed">
         {{ post.content }}
       </p>
     </div>
 
     <!-- Post actions -->
     <div
-      class="flex items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700"
+      class="flex items-center space-x-4 pt-4 border-t border-gray-200"
     >
       <button
         @click="toggleLike"

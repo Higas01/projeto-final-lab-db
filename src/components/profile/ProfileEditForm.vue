@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useAuthStore } from '../../stores/auth';
+i  <div
+    class="b        <label
+          for="display-name"
+          class="block text-sm font-medium text-gray-700"
+        >ite shadow rounded-lg p-6"
+  >
+    <h2
+      class="text-lg font-medium text-gray-900 mb-4"
+    >{ useAuthStore } from '../../stores/auth';
 
 const props = defineProps<{
   currentDisplayName: string;
@@ -51,11 +59,9 @@ async function handleSubmit() {
 </script>
 
 <template>
-  <div
-    class="bg-white dark:bg-gray-800 shadow rounded-lg p-6"
-  >
+  <div class="bg-white shadow rounded-lg p-6">
     <h3
-      class="text-lg font-medium text-gray-900 dark:text-white mb-4"
+      class="text-lg font-medium text-gray-900 mb-4"
     >
       Editar Perfil
     </h3>
@@ -67,7 +73,7 @@ async function handleSubmit() {
       <div>
         <label
           for="displayName"
-          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          class="block text-sm font-medium text-gray-700"
         >
           Nome de Exibição
         </label>
