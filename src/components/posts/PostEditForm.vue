@@ -1,0 +1,96 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { usePostsStore, type Post } from '../../stores/posts'
+
+const props = defineProps<{
+  post: Post
+}>()
+
+const emit = defineEmits<{
+  (e: 'updated'): void
+  (e: 'cancel'): void
+}>()
+
+const postsStore = usePostsStore()
+
+const title = ref(props.post.title)
+const content = ref(props.post.content)
+const loading = ref(false)
+const error = ref('')
+
+async function handleSubmit() {
+  if (!title.value.trim() || !content.value.trim()) {
+    error.value = 'Título e conteúdo são obrigatórios'
+    return
+  }
+  
+  loading.value = true
+  error.value = ''
+  
+  try {
+    await postsStore.updatePost(props.post.id, {
+      title: title.value,
+      content: content.value
+    })
+    
+    emit('updated')
+  } catch (err: any) {
+    error.value = err.message || 'Erro ao atualizar post'
+  } finally {
+    loading.value = false
+  }
+}
+</script>
+
+<template>
+  <form @submit.prevent="handleSubmit" class="space-y-4">
+    <div>
+      <label for="edit-post-title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Título</label>
+      <input 
+        id="edit-post-title" 
+        v-model="title" 
+        type="text" 
+        class="form-input mt-1"
+        :disabled="loading" 
+      />
+    </div>
+    
+    <div>
+      <label for="edit-post-content" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Conteúdo</label>
+      <textarea 
+        id="edit-post-content" 
+        v-model="content" 
+        rows="4" 
+        class="form-input mt-1 resize-none"
+        :disabled="loading"
+      ></textarea>
+    </div>
+    
+    <div v-if="error" class="text-red-500">{{ error }}</div>
+    
+    <div class="flex justify-end">
+      <button 
+        type="button" 
+        @click="emit('cancel')" 
+        class="btn-secondary mr-3"
+        :disabled="loading"
+      >
+        Cancelar
+      </button>
+      
+      <button 
+        type="submit" 
+        class="btn-primary"
+        :disabled="loading"
+      >
+        <span v-if="loading" class="mr-2">
+          <svg class="animate-spin h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </span>
+        Salvar Alterações
+      </button>
+    </div>
+  </form>
+</template>
